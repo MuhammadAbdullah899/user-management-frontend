@@ -1,0 +1,13 @@
+.m-t-20 {
+    margin-top: 20px;
+}
+
+.m-t-100 {
+    margin-top: 100px;
+}
+
+.mainContainer {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+}

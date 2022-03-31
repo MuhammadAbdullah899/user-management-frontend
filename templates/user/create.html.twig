@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    {% set errors = app.session.flashBag.get('error') %}
+    {% set success = app.session.flashBag.get('success') %}
+    <div id="layoutSidenav_content">
+        <main>
+            <div class="container-fluid mainContainer">
+
+                {% for err in errors %}
+                    <div class="col-md-12">
+                        <div class="alert alert-danger">{{ err }}</div>
+                    </div>
+                {% endfor %}
+                {% for suc in success %}
+                    <div class="col-md-12">
+                        <div class="alert alert-success">{{ suc }}</div>
+                    </div>
+                {% endfor %}
+                {{ form_start(form) }}
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h1>Add User</h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        {{ form_label(form.first_name, null, {'label_attr': {'class': 'pt-3 font-weight-bolder'}}) }}
+                        <div class="wrap-input100 validate-input">
+                            {{ form_row(form.first_name, {'label': false}) }}
+                            <span class="focus-input100-1"></span>
+                            <span class="focus-input100-2"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        {{ form_label(form.last_name, null, {'label_attr': {'class': 'pt-3 font-weight-bolder'}}) }}
+                        <div class="wrap-input100 validate-input">
+                            {{ form_row(form.last_name, {'label': false}) }}
+                            <span class="focus-input100-1"></span>
+                            <span class="focus-input100-2"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        {{ form_label(form.email, null, {'label_attr': {'class': 'pt-3 font-weight-bolder'}}) }}
+                        <div class="wrap-input100" data-validate = "Valid email is required: ex@abc.xyz">
+                            {{ form_row(form.email, {'label': false}) }}
+                            <span class="focus-input100-1"></span>
+                            <span class="focus-input100-2"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        {{ form_label(form.password, null, {'label_attr': {'class': 'pt-3 font-weight-bolder'}}) }}
+                        <div class="wrap-input100 validate-input">
+                            {{ form_row(form.password, {'label': false}) }}
+                            <span class="focus-input100-1"></span>
+                            <span class="focus-input100-2"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-md-12">
+                        <div class="container-login100-form-btn m-t-20">
+                            <button class="login100-form-btn btn btn-primary" type="submit">
+                                {{ "Register" | trans }}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                {{ form_end(form) }}
+            </div>
+        </main>
+    </div>
+{% endblock %}

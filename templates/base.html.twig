@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% block stylesheets %}
+        <link rel="stylesheet" type="text/css" href="{{ asset('resources/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('resources/css/dataTables.bootstrap4.min.css') }}" />
+        {# for toggle button #}
+        <link rel="stylesheet" href="{{ asset('resources/css/bootstrap-datetimepicker.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('resources/css/style.css') }}">
+    {% endblock %}
+</head>
+{% block body %}
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+    {% for message in app.flashes('error') %}
+        <div class="alert alert-danger">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('resources/css/js/bootstrap.bundle.min.js') }}" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+    <script src="{{ asset('resources/css/js/jquery.dataTables.min.js') }}" crossorigin="anonymous"></script>
+    <script src="{{ asset('resources/css/js/dataTables.bootstrap4.min.js') }}" crossorigin="anonymous"></script>
+{% endblock %}
+</html>
